@@ -9,4 +9,7 @@
     = csrf_meta_tags
   %body
     .container-fluid
-      = yield
+      .row
+        = render "shared/navigation_bar"
+      .row
+        = yield

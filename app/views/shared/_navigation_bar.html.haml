@@ -1,0 +1,3 @@
+- navigation_bar = YAML.load_file("config/navigation_bar.yml")
+- navigation_bar["navigation_items"].each do |navigation_item|
+  = link_to navigation_item, "/#{navigation_item}"
