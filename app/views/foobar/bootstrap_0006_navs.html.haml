@@ -10,3 +10,21 @@
   %li= link_to "Info", "#"
   %li= link_to "Magic", "#"
   %li= link_to "Equpiment", "#"
+.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{type: "button", "data-toggle" => "collapse",  "data-target" => "#mynavbar-content"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Home", "#", class: "navbar-brand"
+    #mynavbar-content.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{href: "#", "data-toggle" => "dropdown"}
+            Place0
+            %b.caret
+          %ul.dropdown-menu
+            %li= link_to "Guy0", "#"
+        %li= link_to "Place1", "#"
+        %li= link_to "Place2", "#"
