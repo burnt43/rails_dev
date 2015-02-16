@@ -1,2 +1,15 @@
-- @navigation_bar.each do |navigation_item|
-  = link_to navigation_item, "/#{navigation_item}"
+.navbar-header
+  %button.navbar-toggle{type: "button", "data-toggle" => "collapse",  "data-target" => "#mynavbar-content"}
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  = link_to "Home", {controller: :foobar, action: :home}, class: "navbar-brand"
+#mynavbar-content.collapse.navbar-collapse
+  %ul.nav.navbar-nav
+    %li.dropdown
+      %a.dropdown-toggle{href: "#", "data-toggle" => "dropdown"}
+        Bootstrap Tests
+        %b.caret
+      %ul.dropdown-menu
+        - @navigation_bar.each do |navigation_item|
+          %li= link_to navigation_item, "/#{navigation_item}"

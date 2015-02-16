@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :load_navigation_config
 
   def load_navigation_config
-    @navigation_bar = Dir[Rails.root.to_s + "/app/views/foobar/*.html.haml"].collect {|x| x.split("/").last.split(".").first}
+    @navigation_bar = Dir[Rails.root.to_s + "/app/views/foobar/*.html.haml"].keep_if{|x| x =~ /bootstrap/}.collect {|x| x.split("/").last.split(".").first}.sort
   end
 end

@@ -8,8 +8,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .container-fluid
-      .row
-        = render "shared/navigation_bar"
-      .row
+    .row
+      .navbar.navbar-default
+        .container-fluid
+          = render "shared/navigation_bar"
+    .row
+      .container
         = yield
