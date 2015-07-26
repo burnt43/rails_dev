@@ -88,6 +88,61 @@
                 Weight: 160 lbs
             .col-xs-12
               %button.btn.btn-default#foobar0001 Stuff
+.row
+  .col-xs-6
+    .panel.panel-default#panel0000
+      .panel-body
+        .row
+          .col-xs-12
+            %h3.multi1 jQuery Multi Selector
+          .col-xs-12
+            %p.multi2 foobar
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery by attribute prefix
+        .row
+          .col-xs-12
+            %p#pan-0000 Text
+            %p#pan-0001 Text
+            %p#dan-0000 Text
+.row
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery by word
+        .row
+          .col-xs-12
+            %p{id: 'first thing'} Text
+            %p{id: 'second thing'} Text
+            %p{id: 'first bling'} Text
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery by attribute
+        .row
+          .col-xs-12
+            %p{foo: 30} Text
+            %p{foo: 25} Text
+            %p Text
+.row
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery nth item
+        .row
+          .col-xs-12
+            %p.kazoo Text
+            %p.kazoo Text
+            %p.kazoo Text
 :javascript
   $(document).ready( function () {
     $('input').focus( function () {
@@ -100,4 +155,9 @@
       $('.alpha').css('background-color','#DDFFDD');
       $('.beta').css('background-color','#DDDDFF');
     });
+    $('.multi1, .multi2').css('background-color','#aaccff');
+    $('[id |= "pan"]').css('background-color','#FFFF98');
+    $('[id ~= "thing"]').css('background-color','#76FF58');
+    $('[foo]').css('background-color','#8787FF');
+    $('.kazoo').eq(1).css('background-color','#FF7834');
   });
