@@ -1,0 +1,71 @@
+.row
+  .col-xs-6
+    .row
+      .col-xs-12
+        %h3 jQuery single element by id
+    .row
+      .col-xs-12
+        %p#a_text This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text.
+    .row
+      .col-xs-12
+        =link_to 'Make Blue', '#', class: 'btn btn-default', onClick: '$("#a_text").css("background-color", "blue");'
+        =link_to 'Clear', '#', class: 'btn btn-default', onClick: '$("#a_text").css("background-color","white");'
+  .col-xs-6
+    .row
+      .col-xs-12
+        %h3 jQuery all html
+    .row
+      .col-xs-12
+        %p This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text. This is text.
+    .row
+      .col-xs-12
+        =link_to 'Fuck up everything', '#', class: 'btn btn-default', onClick: '$("*").css("background-color","green");'
+.row        
+  .col-xs-6
+    .row
+      .col-xs-12
+        %h3 jQuery for children
+    .row
+      .col-xs-12
+        %ul#list
+          %li Apple
+          %li Banana
+          %li Carrot
+    .row
+      .col-xs-12
+        =link_to 'Highlight', '#', class: 'btn btn-default', onClick: '$("#list").css("background-color","yellow");'
+  .col-xs-6
+    .row
+      .col-xs-12
+        %h3 jQuery for tag
+    .row
+      .col-xs-12
+        =image_tag 'jim.jpg'
+        =image_tag 'jim.jpg'
+    .row
+      .col-xs-12
+        =link_to 'Trans', '#', class: 'btn btn-default', onClick: '$("img").css("opacity","0.5");'
+        =link_to 'Reset', '#', class: 'btn btn-default', onClick: '$("img").css("opacity","1.0");'
+.row        
+  .col-xs-6
+    .row
+      .col-xs-12
+        %h3 jQuery focus and blur
+    .row
+      .col-xs-12
+        %form.form
+          .form-group
+            %label{for: 'nameField'} Name
+            %input.form-control{type: 'text', id: 'nameField', placeholder: 'Your Name'}
+          .form-group
+            %label{for: 'foobar0000'} Job
+            %input.form-control{type: 'text', id: 'foobar0000', placeholder: 'Engineer'}
+:javascript
+  $(document).ready( function () {
+    $('input').focus( function () {
+      $(this).css('background-color', 'yellow');
+    });
+    $('input').blur( function () {
+      $(this).css('background-color', 'white');
+    });
+  });

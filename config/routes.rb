@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  get '/:name' => 'bootstrap#index'
+  get '/bootstrap/:name' => 'bootstrap#index'
+  get '/jquery/:name'    => 'jquery#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

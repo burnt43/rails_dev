@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_navigation_config
 
   def load_navigation_config
-    @navigation_bar = Dir[Rails.root.to_s + "/app/views/bootstrap/*.html.haml"].collect {|x| x.split("/").last.split(".").first}.sort
+    @bootstrap_pages = Dir[Rails.root.to_s + "/app/views/bootstrap/*.html.haml"].collect {|x| x.split("/").last.split(".").first}.sort
+    @jquery_pages    = Dir[Rails.root.to_s + "/app/views/jquery/*.html.haml"].collect {|x| x.split("/").last.split(".").first}.sort
   end
 end
