@@ -143,6 +143,65 @@
             %p.kazoo Text
             %p.kazoo Text
             %p.kazoo Text
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery even and odd
+        .row
+          .col-xs-12
+            %ul.list-group
+              %li.list-group-item.kazoo1 Knicks
+              %li.list-group-item.kazoo1 Nets
+              %li.list-group-item.kazoo1 76ers
+              %li.list-group-item.kazoo1 Celtics
+.row
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery upto N
+          .col-xs-12
+            %ul.list-group
+              %li.list-group-item.kazoo2 AAAAA
+              %li.list-group-item.kazoo2 BBBBB
+              %li.list-group-item.kazoo2 CCCCC
+              %li.list-group-item.kazoo2 DDDDD
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery headers
+          .col-xs-12
+            %h4 One
+            %h4 Two
+          .col-xs-12
+            %button.btn.btn-default#kazoo3 Click
+.row
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery first and last
+          .col-xs-12
+            %ul.list-group
+              %li.list-group-item.kazoo4 Ketchup
+              %li.list-group-item.kazoo4 Mayo
+              %li.list-group-item.kazoo4 Mustard
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery not selector
+          .col-xs-12
+            %h4{bar: 10} Text
+            %p{bar: 30} Text
+            %p{bar: 20} Text
 :javascript
   $(document).ready( function () {
     $('input').focus( function () {
@@ -160,4 +219,13 @@
     $('[id ~= "thing"]').css('background-color','#76FF58');
     $('[foo]').css('background-color','#8787FF');
     $('.kazoo').eq(1).css('background-color','#FF7834');
+    $('.kazoo1:even').css('background-color','#3782FF');
+    $('.kazoo1:odd').css('background-color','#76FF05');
+    $('.kazoo2:lt(2)').css('background-color','#F48728');
+    $('#kazoo3').click( function () {
+      $(':header').css('background-color','#587F2F');
+    });
+    $('.kazoo4').first().css('background-color','#87FF87');
+    $('.kazoo4').last().css('background-color','#89e67F');
+    $('[bar]:not(h4)').css('background-color','#FFD291');
   });
