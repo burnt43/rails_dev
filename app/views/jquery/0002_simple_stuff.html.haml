@@ -202,6 +202,51 @@
             %h4{bar: 10} Text
             %p{bar: 30} Text
             %p{bar: 20} Text
+.row
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery Children
+          .col-xs-12
+            %ul.list-group
+              %li.list-group-item.kazoo5 1000
+              %li.list-group-item.kazoo5 2000
+              %li.list-group-item.kazoo5 3000
+              %li.list-group-item.kazoo5 4000
+            %ul.list-group
+              %li.list-group-item.kazoo5 5000
+              %li.list-group-item.kazoo5 6000
+              %li.list-group-item.kazoo5 7000
+              %li.list-group-item.kazoo5 8000
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery Text
+          .col-xs-12
+            %p This is a sentence.
+            %p This is a sentence with jaguar in it.
+.row
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery no Children
+          .col-xs-12
+            %ul.list-group
+  .col-xs-6
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-xs-12
+            %h3 jQuery Children
+          .col-xs-12
+            %ul.list-group#kazoo6
+              %li.list-group-item Shit
 :javascript
   $(document).ready( function () {
     $('input').focus( function () {
@@ -228,4 +273,9 @@
     $('.kazoo4').first().css('background-color','#87FF87');
     $('.kazoo4').last().css('background-color','#89e67F');
     $('[bar]:not(h4)').css('background-color','#FFD291');
+    $('.kazoo5:nth-child(2)').css('background-color','#3838FF');
+    $('p:contains("jaguar")').css('background-color','#287FFF');
+    var some_html = $('<li class="list-group-item">James Carson</li>');
+    $('ul:empty').append(some_html);
+    $('#kazoo6:has(li:contains("Shit"))').html($('<li class="list-group-item">Poop</li>'));
   });
