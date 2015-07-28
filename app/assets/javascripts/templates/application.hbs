@@ -1,2 +1,18 @@
-<h1 class='text-center'>JAMES</h1>
-{{outlet}}
+<div class="row">
+  <h1 class='text-center'>James's EmberJS App</h1>
+</div>
+<div class="row">
+  <div class="col-xs-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li> <a href="#/post">Posts<span class="badge">0</span></a></li>
+      <li> <a href="#/event">Events<span class="badge">0</span></a></li>
+    </ul>
+  </div>
+  <div class="col-xs-9">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>
