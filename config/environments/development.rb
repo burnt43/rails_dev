@@ -35,6 +35,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  config.assets.precompile += %w( ember_main.js )
   config.ember.variant = :development
 
   # Raises error for missing translations
