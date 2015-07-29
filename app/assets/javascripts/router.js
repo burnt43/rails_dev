@@ -2,7 +2,7 @@
 
 App.Router = Ember.Router.extend({
   location: 'auto',
-  rootURL: '/'
+  rootURL: '/emberjs/'
 });
 
 App.Router.map(function() {

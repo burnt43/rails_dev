@@ -19,7 +19,10 @@
 //= require ./app
 
 // for more details see: http://emberjs.com/guides/application/
-App = Ember.Application.create();
+App = Ember.Application.create({
+  rootElement: '#ember-app'
+});
+App.deferReadiness();
 
 //= require_tree .
 //= require bootstrap-sprockets
