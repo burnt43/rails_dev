@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/bootstrap/:name' => 'bootstrap#index'
   get '/jquery/:name'    => 'jquery#index'
   get '/emberjs'         => 'ember_js#index'
+  get '/emberjs/*path'   => 'ember_js#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
