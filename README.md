@@ -85,3 +85,46 @@ class EmberJsController < ApplicationController
   end
 end
 ```
+
+I make a layout for the EmberJsController. I am using HAML. I am including the ember_main javascript file here. This will be the only page that has Ember enabled.
+app/views/layouts/ember_js.html.haml:
+``` haml
+%html
+  %head
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'ember_main'
+  %body
+    = yield
+```
+
+The index view is very simple. This is just a div with id="ember-app". I do this to give Ember a place to embed in. I will explain hwo to configure this below.
+app/views/ember_js/index.html.haml:
+``` haml
+#ember-app
+```
+
+Now the Rails app should be all ready to go. We have to configure Ember to work now.
+First thing to do is create an Embber Application. The bootstrap process from before generates this line for you.
+I put this at the bottom of my ember_main.js file. I added the rootElement field here to tell Ember to go inside my ```<div id="ember-app"></div>``` from earlier.
+``` javascript
+App = Ember.Application.create({
+  rootElement: '#ember-app'
+});
+```
+
+I also modify router.js. I set 2 fields location and rootURL. I set location to auto. Ember has a few location settings, I find for just using Ember in 1 page of rails that this is the best. The Ember docs explain this well. Basically, this setting is for Ember routing. Ember will mess around with the URL in your browser unless you set location to 'none'. I am ok with Ember messing with the URL because if a user of the Ember app hits back or forward on the browser it will properly navigate. 
+``` javascript
+App.Router = Ember.Router.extend({
+  location: 'auto',
+  rootURL: '/emberjs/'
+});
+```
+
+The last step to get a 'Hello World' working is to add an application template. 
+Create templates/application.hbs. I use hbs(Handlebars), but you can use Emblem(I have not been able to get this to work).
+```
+<h1>Hello World</h1>
+```
+
+Now when you navigate to emberjs#index you should see Hello World.
