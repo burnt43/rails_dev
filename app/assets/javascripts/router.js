@@ -7,7 +7,9 @@ App.Router = Ember.Router.extend({
 
 App.Router.map(function() {
   this.resource('posts', { path: '/posts' }, function () {
-    this.resource('post', { path: '/post/:id' });
+    this.resource('post', { path: '/post/:id' }, function () {
+      this.route('edit');
+    });
   });
   this.route('events');
 });

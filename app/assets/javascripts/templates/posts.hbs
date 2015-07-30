@@ -3,11 +3,15 @@
 </div>
 <div class="row">
   <div class="col-xs-2">
-    <ul class="nav nav-pills nav-stacked">
-    {{#each post in controller}}
-      <li>{{#link-to 'post' post}}<i class="fa fa-file-text-o"></i>{{post.title}}{{/link-to}}</li>
-    {{/each}}
-    </ul>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+        {{#each post in controller}}
+          <li>{{#link-to 'post' post}}<i class="fa fa-file-text-o"></i>{{post.title}}{{/link-to}}</li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="col-xs-10">
     {{outlet}}
