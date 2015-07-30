@@ -1,7 +1,12 @@
 {{#if model}}
+  <div class="form-group">
+    <label class="control-label">Color</label>
+    {{view Ember.Select content=App.Post.COLORS value=model.color class="form-control" prompt="Select Color"}}
+  </div>
   <div class="well">
     {{model.body}}
   </div>
+  {{input type='submit' value='Save' click='saveChanges' class="btn"}}
 {{else}}
   <h4 class="text-center">Select a Post</h4>
 {{/if}}

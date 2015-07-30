@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730134238) do
+ActiveRecord::Schema.define(version: 20150730161624) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title", limit: 255
     t.text   "body",  limit: 65535
+    t.string "color", limit: 255
   end
 
   create_table "widgets", force: :cascade do |t|

@@ -1,3 +1,7 @@
-App.PostsController = Ember.ArrayController.extend({
-  sortProperties: ['title']
+App.PostController = Ember.ObjectController.extend({
+  actions: {
+    saveChanges: function () {
+      this.get('model').save();
+    }
+  }
 });
