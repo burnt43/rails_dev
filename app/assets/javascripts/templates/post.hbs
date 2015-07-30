@@ -6,7 +6,7 @@
   <div class="well">
     {{model.body}}
   </div>
-  {{input type='submit' value='Save' click='saveChanges' class="btn"}}
+  <input type='submit' value='Save' class='btn btn-success' {{action 'saveChanges'}}/>
 {{else}}
   <h4 class="text-center">Select a Post</h4>
 {{/if}}

@@ -1,3 +1,5 @@
+//= require jquery
+//= require jquery_ujs
 //= require ember
 //= require ember-data
 //= require active-model-adapter
