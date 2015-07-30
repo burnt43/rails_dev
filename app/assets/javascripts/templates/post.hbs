@@ -1,12 +1,32 @@
 {{#if model}}
-  <div class="form-group">
-    <label class="control-label">Color</label>
-    {{view Ember.Select content=App.Post.COLORS value=model.color class="form-control" prompt="Select Color"}}
+  <div class="row">
+    <div class="form-group">
+      <label class="control-label">State</label>
+      {{view Ember.Select content=App.Post.STATES value=model.state class="form-control"}}
+    </div>
   </div>
-  <div class="well">
-    {{model.body}}
+  <div class="row">
+    <div class="well">
+      {{model.body}}
+    </div>
   </div>
-  <input type='submit' value='Save' class='btn btn-success' {{action 'saveChanges'}}/>
+  <div class="row">
+    <input type='submit' value='Save' class='btn btn-success' {{action 'saveChanges'}}/>
+  </div>
+  {{#if showUnsavedMessage}}
+    <div class="row">
+      <div class="alert alert-warning">
+        <i class="fa fa-exclamation-triangle"></i> You have unsaved changes
+      </div>
+    </div>
+  {{/if}}
+  {{#if isSaving}}
+    <div class="row">
+      <div class="alert alert-success">
+        <i class="fa fa-info-circle"></i> Saving...
+      </div>
+    </div>
+  {{/if}}
 {{else}}
   <h4 class="text-center">Select a Post</h4>
 {{/if}}

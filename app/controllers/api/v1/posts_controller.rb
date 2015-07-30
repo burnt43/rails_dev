@@ -21,7 +21,7 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:color)
+      params.require(:post).permit(:state)
     end
 
 end
