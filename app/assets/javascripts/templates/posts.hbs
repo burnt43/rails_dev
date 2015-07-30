@@ -1,9 +1,15 @@
-<h2 class="text-center">Posts</h2>
-{{#each post in controller}}
-  <div class="row">
-    <div class="well well-sm">
-      <h4>{{post.title}}</h4>
-      <p>{{post.body}}</p>
-    </div>
+<div class="row">
+  <h2 class="text-center">Posts</h2>
+</div>
+<div class="row">
+  <div class="col-xs-2">
+    <ul class="nav nav-pills nav-stacked">
+    {{#each post in controller}}
+      <li>{{#link-to 'post' post}}<i class="fa fa-file-text-o"></i>{{post.title}}{{/link-to}}</li>
+    {{/each}}
+    </ul>
   </div>
-{{/each}}
+  <div class="col-xs-10">
+    {{outlet}}
+  </div>
+</div>
