@@ -1,6 +1,3 @@
-App.PostsController = Ember.Controller.extend({
-  init: function () {
-    this._super();
-    console.log('controller called');
-  }
+App.PostsController = Ember.ArrayController.extend({
+  sortProperties: ['title']
 });

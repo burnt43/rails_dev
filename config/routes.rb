@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   get '/emberjs'         => 'ember_js#index'
   get '/emberjs/*path'   => 'ember_js#index'
 
+  namespace :api do
+    namespace :v1 do
+      resource :posts
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
