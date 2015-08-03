@@ -9,6 +9,12 @@
             li
               link-to 'post' post
                 i.fa.fa-file-text-o
+                ' 
                 =post.title
+    .panel.panel-default
+      .panel-body
+        link-to 'posts.new'
+          i.fa.fa-plus-square
+          '  Add Post
   .col-xs-10
     outlet

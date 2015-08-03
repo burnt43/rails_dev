@@ -10,6 +10,7 @@ App.Router.map(function() {
     this.resource('post', { path: '/post/:id' }, function () {
       this.route('edit');
     });
+    this.route('new');
   });
   this.route('events');
 });

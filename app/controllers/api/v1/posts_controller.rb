@@ -10,6 +10,10 @@ class Api::V1::PostsController < ApplicationController
       respond_with post
     end
 
+    def create
+      respond_with :api, :v1, Post.create(post_params)
+    end
+
     def update
       respond_with post.update(post_params)
     end
@@ -25,7 +29,7 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:state)
+      params.require(:post).permit(:state,:title,:body)
     end
 
 end
