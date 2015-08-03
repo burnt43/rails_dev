@@ -3,11 +3,11 @@ unless isEditing
     .row
       .panel.panel-default
         .panel-heading
-          strong {{model.title}}
+          strong= model.title
         .panel-body
           .form-group
             label.control-label State
-            | {{view Ember.Select content=App.Post.STATES value=model.state class="form-control"}}
+            view Ember.Select content=App.Post.STATES value=model.state class='form-control'
     .row
       .panel.panel-default
         .panel-heading
@@ -18,8 +18,7 @@ unless isEditing
               span.pull-right
                 link-to 'post.edit' model
                   i.fa.fa-pencil-square-o.fa-lg
-        .panel-body
-          | {{model.body}}
+        .panel-body= model.body
     .row
       input.btn.btn-success type='submit' value='Save' click='saveChanges'
     if showUnsavedMessage
