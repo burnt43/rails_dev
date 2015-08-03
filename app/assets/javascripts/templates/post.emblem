@@ -1,0 +1,38 @@
+unless isEditing
+  if model
+    .row
+      .panel.panel-default
+        .panel-heading
+          strong {{model.title}}
+        .panel-body
+          .form-group
+            label.control-label State
+            | {{view Ember.Select content=App.Post.STATES value=model.state class="form-control"}}
+    .row
+      .panel.panel-default
+        .panel-heading
+          .row
+            .col-xs-6
+              strong Text
+            .col-xs-6
+              span.pull-right
+                link-to 'post.edit' model
+                  i.fa.fa-pencil-square-o.fa-lg
+        .panel-body
+          | {{model.body}}
+    .row
+      input.btn.btn-success type='submit' value='Save' click='saveChanges'
+    if showUnsavedMessage
+      .row
+        .alert.alert-warning
+          i.fa.fa-exclamation-triangle
+          | You have unsaved changes
+    if model.isSaving
+      .row
+        .alert.alert-success
+          i.fa.fa-info-circle
+          | Saving...
+  else
+    h4.text-center Select a Post
+else
+  outlet

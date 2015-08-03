@@ -36,6 +36,8 @@ gem 'ember-rails'
 gem 'ember-source'
 gem 'responders'
 gem 'font-awesome-rails'
+gem 'ember-emblem-template'
+gem 'emblem-source'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,17 @@
+.row
+  .panel.panel-default
+    .panel-heading
+      .row
+        .col-xs-6
+          strong Text
+    .panel-body
+      .form-group
+        view Ember.TextArea value=model.body rows=20 class='form-control'
+.row
+  input.btn.btn-success type='submit' value='Save' click='saveChanges'
+  input.btn.btn-danger type='submit' value='Cancel' click='cancel'
+if showUnsavedMessage
+  .row
+    .alert.alert-warning
+      i.fa.fa-exclamation-triangle
+      | You have unsaved changes
