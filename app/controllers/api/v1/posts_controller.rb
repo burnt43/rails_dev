@@ -14,6 +14,10 @@ class Api::V1::PostsController < ApplicationController
       respond_with post.update(post_params)
     end
 
+    def destroy
+      respond_with post.destroy
+    end
+
     private
 
     def post

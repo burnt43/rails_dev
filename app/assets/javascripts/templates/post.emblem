@@ -20,7 +20,11 @@ unless isEditing
                   i.fa.fa-pencil-square-o.fa-lg
         .panel-body= model.body
     .row
-      input.btn.btn-success type='submit' value='Save' click='saveChanges'
+      .col-xs-6
+        input.btn.btn-success type='submit' value='Save' click='saveChanges'
+      .col-xs-6
+        span.pull-right
+          input.btn.btn-danger type='submit' value='Delete' click='destroy'
     if showUnsavedMessage
       .row
         .alert.alert-warning

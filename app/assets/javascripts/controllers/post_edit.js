@@ -6,8 +6,10 @@ App.PostEditController = Ember.ObjectController.extend({
 
   actions: {
     saveChanges: function () {
-      this.get('model').save();
-      this.transitionToRoute('post');
+      var self = this
+      this.get('model').save().then( function () {
+        self.transitionToRoute('post');
+      });
     },
     cancel: function () {
       this.get('model').rollback();
