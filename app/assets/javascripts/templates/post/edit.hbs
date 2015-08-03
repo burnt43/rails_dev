@@ -12,3 +12,14 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <input type='submit' value='Save' class='btn btn-success' {{action 'saveChanges'}}/>
+  <input type='submit' value='Cancel' class='btn btn-danger' {{action 'cancel'}}/>
+</div>
+{{#if showUnsavedMessage}}
+  <div class="row">
+    <div class="alert alert-warning">
+      <i class="fa fa-exclamation-triangle"></i> You have unsaved changes
+    </div>
+  </div>
+{{/if}}
