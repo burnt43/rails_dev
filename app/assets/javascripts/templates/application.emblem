@@ -15,7 +15,7 @@
             link-to 'events'
               | Events
               span.badge 0
-  .col-xs-10
+  .col-xs-8
     .panel.panel-default
       .panel-body
         outlet
