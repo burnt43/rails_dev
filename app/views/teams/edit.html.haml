@@ -1,0 +1,22 @@
+= bootstrap_form_for(@team) do |f|
+  - @team.class.column_names.each do |column_name|
+    = f.text_field column_name.to_sym
+  #extra_fields
+  = f.submit class: 'btn btn-success'
+  %a.btn.btn-default#add_button Add Field
+  #template{ style: 'display:none' }
+    .form-group
+      .col-xs-6
+        = text_field_tag 'names[]', nil, class: 'form-control', disabled: true
+      .col-xs-6
+        = text_field_tag 'values[]', nil, class: 'form-control', disabled: true
+:javascript
+  $(document).ready( function () {
+    var extra_fields = $('#extra_fields');
+    var template     = $('#template');
+    $('#add_button').click( function () {
+      var new_thing = $(template.html());
+      new_thing.find('input').removeAttr('disabled');
+      extra_fields.append( new_thing );
+    });
+  });

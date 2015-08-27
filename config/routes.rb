@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :teams
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
