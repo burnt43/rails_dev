@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/bootstrap/:name' => 'bootstrap#index'
   get '/jquery/:name'    => 'jquery#index'
+  get '/emberjs'         => 'ember_js#index'
+  get '/emberjs/*path'   => 'ember_js#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :posts
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

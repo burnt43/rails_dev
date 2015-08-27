@@ -1,0 +1,21 @@
+.row
+  h1.text-center James EmberJS App
+.row
+  .col-xs-2
+    .panel.panel-default
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          li
+            a href="/" Back to GUI
+          li
+            link-to 'posts'
+              | Posts
+              span.badge 0
+          li
+            link-to 'events'
+              | Events
+              span.badge 0
+  .col-xs-8
+    .panel.panel-default
+      .panel-body
+        outlet
