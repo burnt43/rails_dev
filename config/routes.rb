@@ -1,19 +1,10 @@
 Rails.application.routes.draw do
+  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
-  get '/bootstrap/:name' => 'bootstrap#index'
-  get '/jquery/:name'    => 'jquery#index'
-  get '/emberjs'         => 'ember_js#index'
-  get '/emberjs/*path'   => 'ember_js#index'
-
-  namespace :api do
-    namespace :v1 do
-      resources :posts
-    end
-  end
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -23,6 +14,9 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :foos do 
+  end
 
   # Example resource route with options:
   #   resources :products do

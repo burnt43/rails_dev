@@ -1,0 +1,36 @@
+.panel.panel-primary
+  .panel-heading
+    %strong Home
+  .panel-body
+    %p This is an application for testing/developing.
+    %p This application is using Turbolinks with caching enabled. In the HAML for this page I add click handlers to the red and green buttons on 'turbolinks:load'. In this current version of Turbolinks with caching enabled by default, Turbolinks will load the cached page and remember the handlers for the buttons. That means Turbolinks will load the buttons with the click handlers, but also since the browser will evaluate the javascript in the script tag it will add again therefore there will be 2 handlers instead of one.
+    %p The green button has a fix so that it will always increment by 1. When the button is initialized I add a 'data-fully-loaded' to the element. I only attach the handler if 'data-fully-loaded' is false.
+    %p The red button has no fix and will decrement by one on the first load, but when it is retrieved from cache it will decrement by 2 since the handler is being run twice.
+    %p Another solution to this problem is to disable caching completely.
+    %p Also note that the counter in the right side of the navbar will retain its value across turbolink visits. This is because it has 'data-turbolinks-permanent' in its tag. The HTML the server generates always has it at 0. Turbolinks will not replace its HTML since it is permanent. However, if you force refresh the page, it will of course not use turbolinks and go back to 0.
+  .panel-footer
+    %a.btn.btn-danger#subtract-user
+      = fa_icon('user')
+      = '-'
+    %a.btn.btn-success#add-user
+      = fa_icon('user')
+      = '+'
+:javascript
+  $(document).one('turbolinks:load', function(){
+    var $add_user_button = $('#add-user');
+    if ( !$add_user_button.data('fully-loaded') ) {
+      $add_user_button.click(function(){
+        var $user_count = $('#user-count');
+        var value       = parseInt($user_count.text());
+
+        $user_count.text(value+1);
+      });
+      $add_user_button.data('fully-loaded', true);
+    }
+    $('#subtract-user').click(function(){
+      var $user_count = $('#user-count');
+      var value       = parseInt($user_count.text());
+
+      $user_count.text(value-1);
+    });
+  });
