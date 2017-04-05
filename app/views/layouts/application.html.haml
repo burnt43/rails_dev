@@ -5,6 +5,46 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = csrf_meta_tags
     -# NO CACHING FOR TURBOLINKS %meta{name: 'turbolinks-cache-control', content: 'no-cache'}
+    :javascript
+      $(document).on('click', 'a.turbolinks-submit-button', function () {
+        console.log('clicked');
+
+        var $form = $(this).closest('form[data-turbolinks-form]');
+        var form_data = {};
+
+        $.each( $form.find('input'), function(index,obj) {
+          var $obj                     = $(obj);
+          form_data[$obj.attr('name')] = $obj.val();
+        });
+
+        var action_specific_ajax_options = {};
+        switch ( $(this).data('turbolinks-controller-action-name') ) {
+          case 'edit':
+          case 'turbolinks_update':
+          action_specific_ajax_options = {
+            url: $form.attr('action') + '/turbolinks_update',
+            type: 'patch'
+          }
+          break;
+          case 'new':
+          action_specific_ajax_options = {
+            url: $form.attr('action') + '/turbolinks_create',
+            type: 'post'
+          }
+          break;
+        }
+              
+        $.ajax($.extend(action_specific_ajax_options,{
+          data: form_data
+        })).done( function ( response ) {
+          // this should get JS and it will automatically be evaluated.
+          console.log(response);
+        }).fail( function( response ) {
+          // this should get HTML of the form
+          $('#flash-notice').html('<div class="alert alert-danger"><strong>Error!</strong></div>');
+          $form.closest('.turbolinks-form-container').html(response.responseText);
+        }); 
+      });
   %body
     %nav.navbar.navbar-default.navbar-fixed-top{role: "navigation"}
       .container
@@ -29,12 +69,13 @@
       .container-fluid{style: 'margin-top: 60px;'}
         .row
           .col-md-10.col-md-offset-1
-            - if flash[:notice].try(:has_key?, 'success')
-              .alert.alert-success{role: 'alert'}
-                %strong Success!
-                = flash[:notice]['success']
-            - if flash[:notice].try(:has_key?, :error)
-              .alert.alert-danger{role: 'alert'}
-                %strong Error!
-                = flash[:notice][:error]
+            #flash-notice
+              - if flash[:notice].try(:has_key?, 'success')
+                .alert.alert-success{role: 'alert'}
+                  %strong Success!
+                  = flash[:notice]['success']
+              - if flash[:notice].try(:has_key?, :error)
+                .alert.alert-danger{role: 'alert'}
+                  %strong Error!
+                  = flash[:notice][:error]
             = yield

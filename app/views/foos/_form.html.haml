@@ -1,4 +1,4 @@
-= bootstrap_form_for(@foo) do |f|
+= bootstrap_form_for(@foo, html: {data: {turbolinks_form: true}}) do |f|
   .panel.panel-primary
     .panel-heading
       %strong= "New #{Foo.model_name.human}"
@@ -10,3 +10,6 @@
       = f.number_field :intelligence
     .panel-footer
       = f.submit class: 'btn btn-success'
+      %a.btn.btn-info.turbolinks-submit-button{data: {turbolinks_controller_action_name: action_name}}
+        = fa_icon :star, class: 'fa-lg'
+        Special

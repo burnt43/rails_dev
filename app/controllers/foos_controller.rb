@@ -34,6 +34,17 @@ class FoosController < ApplicationController
     end
   end
 
+  def turbolinks_update
+    @foo = Foo.find(params[:id])
+    if @foo.update_attributes(foo_params)
+      flash[:notice] = {success: "#{Foo.model_name.human} has been updated."}
+      render js: "Turbolinks.visit('#{edit_foo_path(@foo)}')"
+    else
+      flash[:notice] = {error: "#{Foo.model_name.human} could not be updated."}
+      render partial: 'form', status: 422
+    end
+  end
+
   private
 
   def foo_params

@@ -5,7 +5,7 @@
     %p This page loads slowly on purpose to test caching/preview feature of Turbolinks.
     %p= "Here is a random number: #{@random_number}"
   .table-responsive
-    %table.table
+    %table.table.table-condensed
       %thead
         %tr
           %th Actions
@@ -19,7 +19,7 @@
           %tr
             %td
               %a{href: edit_foo_path(foo)}
-                = fa_icon('pencil-square', class: 'fa-lg')
+                = fa_icon('pencil-square', class: 'fa-2x')
             %td= foo.name
             %td= foo.title
             %td= foo.strength
@@ -27,5 +27,5 @@
             %td= foo.intelligence
   .panel-footer
     %a.btn.btn-success{href: new_foo_path}
-      = fa_icon('plus')
+      = fa_icon('plus', class: 'fa-lg')
       = "Add #{Foo.model_name.human}"

@@ -10,11 +10,11 @@
     %p Also note that the counter in the right side of the navbar will retain its value across turbolink visits. This is because it has 'data-turbolinks-permanent' in its tag. The HTML the server generates always has it at 0. Turbolinks will not replace its HTML since it is permanent. However, if you force refresh the page, it will of course not use turbolinks and go back to 0.
   .panel-footer
     %a.btn.btn-danger#subtract-user
-      = fa_icon('user')
-      = '-'
+      = fa_icon('minus', class: 'fa-lg')
+      = fa_icon('user', class: 'fa-lg')
     %a.btn.btn-success#add-user
-      = fa_icon('user')
-      = '+'
+      = fa_icon('plus', class: 'fa-lg')
+      = fa_icon('user', class: 'fa-lg')
 :javascript
   $(document).one('turbolinks:load', function(){
     var $add_user_button = $('#add-user');
