@@ -1,0 +1,12 @@
+= bootstrap_form_for(@foo) do |f|
+  .panel.panel-primary
+    .panel-heading
+      %strong= "New #{Foo.model_name.human}"
+    .panel-body
+      = f.text_field :name
+      = f.text_field :title
+      = f.number_field :strength
+      = f.number_field :agility
+      = f.number_field :intelligence
+    .panel-footer
+      = f.submit class: 'btn btn-success'

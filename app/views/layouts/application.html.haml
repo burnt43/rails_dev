@@ -29,4 +29,12 @@
       .container-fluid{style: 'margin-top: 60px;'}
         .row
           .col-md-10.col-md-offset-1
+            - if flash[:notice].try(:has_key?, 'success')
+              .alert.alert-success{role: 'alert'}
+                %strong Success!
+                = flash[:notice]['success']
+            - if flash[:notice].try(:has_key?, :error)
+              .alert.alert-danger{role: 'alert'}
+                %strong Error!
+                = flash[:notice][:error]
             = yield
