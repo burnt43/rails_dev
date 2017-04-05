@@ -40,9 +40,12 @@
           // this should get JS and it will automatically be evaluated.
           console.log(response);
         }).fail( function( response ) {
-          // this should get HTML of the form
-          $('#flash-notice').html('<div class="alert alert-danger"><strong>Error!</strong></div>');
-          $form.closest('.turbolinks-form-container').html(response.responseText);
+          // this should get JSON with an 'error' and 'form_html'
+          console.log(response);
+          if ( response.status == 422 ) {
+            $('#flash-notice').html('<div class="alert alert-danger"><strong>Error!</strong> <span>'+response.responseJSON.error+'</span></div>');
+            $form.closest('.turbolinks-form-container').html(response.responseJSON.form_html);
+          }
         }); 
       });
   %body

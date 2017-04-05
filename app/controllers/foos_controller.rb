@@ -40,8 +40,10 @@ class FoosController < ApplicationController
       flash[:notice] = {success: "#{Foo.model_name.human} has been updated."}
       render js: "Turbolinks.visit('#{edit_foo_path(@foo)}')"
     else
-      flash[:notice] = {error: "#{Foo.model_name.human} could not be updated."}
-      render partial: 'form', status: 422
+      render json: {
+        form_html: render_to_string(partial: 'form', formats: [:html]),
+        error: "#{Foo.model_name.human} could not be updated."
+      }, status: 422
     end
   end
 
