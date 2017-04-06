@@ -47,6 +47,19 @@ class FoosController < ApplicationController
     end
   end
 
+  def turbolinks_create
+    @foo = Foo.new
+    if @foo.update_attributes(foo_params)
+      flash[:notice] = {success: "#{Foo.model_name.human} has been created."}
+      render js: "Turbolinks.visit('#{edit_foo_path(@foo)}')"
+    else
+      render json: {
+        form_html: render_to_string(partial: 'form', formats: [:html]),
+        error: "#{Foo.model_name.human} could not be created."
+      }, status: 422
+    end
+  end
+
   private
 
   def foo_params

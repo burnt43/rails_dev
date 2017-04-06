@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     member do
       patch 'turbolinks_update'
     end
+    collection do
+      post  'turbolinks_create'
+    end
   end
 
   # Example resource route with options:
